@@ -1,0 +1,762 @@
+/* ========================================================
+   AHD CREATIVE — GIMIMAY-STYLE CLEAN LANDING PAGE
+   Inspired by https://gimimay.com/
+   ======================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --gimi-bg: #FAF6F0;
+  --gimi-card-bg: #F3EFEA;
+  --gimi-card-border: #E8E1D7;
+  --gimi-border-light: #EADBCE;
+  --gimi-text-dark: #2D231E;
+  --gimi-text-muted: #786C65;
+  --gimi-green-primary: #5B7E68;
+  --gimi-green-hover: #476853;
+  --gimi-green-light: #E8F0EA;
+  --gimi-green-wa: #22C55E;
+  --gimi-green-wa-hover: #16A34A;
+  --gimi-cyan: #06B6D4;
+}
+
+body.gimi-body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--gimi-bg);
+  color: var(--gimi-text-dark);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ================= MAIN WRAPPER & CONTAINER ================= */
+.gimi-main-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+}
+
+.gimi-container {
+  width: 100%;
+  max-width: 960px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+
+@media (min-width: 1024px) {
+  .gimi-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 56px;
+  }
+}
+
+/* ================= LEFT SIDE: SHOWCASE CARD ================= */
+.gimi-mockup-card {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  background-color: var(--gimi-card-bg);
+  border: 1px solid var(--gimi-card-border);
+  border-radius: 36px;
+  padding: 32px 24px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 20px 45px rgba(45, 35, 30, 0.06), 0 4px 12px rgba(45, 35, 30, 0.03);
+}
+
+/* Floating Badges (Gimimay Signature) */
+.gimi-float-badge {
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.gimi-float-badge.top-badge {
+  top: -14px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--gimi-border-light);
+  color: var(--gimi-text-dark);
+}
+
+.gimi-float-badge.bottom-badge {
+  bottom: 52px;
+  left: 14px;
+  background: #18181B;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #34D399;
+}
+
+.gimi-float-badge .badge-icon {
+  font-size: 13px;
+}
+
+/* Phone Mockup Frame */
+.gimi-phone-frame {
+  width: 250px;
+  height: 480px;
+  background: #101012;
+  border-radius: 36px;
+  border: 4px solid #28282B;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35), inset 0 0 0 2px rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.gimi-phone-speaker {
+  width: 56px;
+  height: 4.5px;
+  background: #28282B;
+  border-radius: 999px;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+}
+
+/* Inner Screen Transitions */
+.gimi-screen-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #121215;
+  color: #fafafa;
+}
+
+.gimi-slide-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 24px 14px 14px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  opacity: 0;
+  transform: translateX(30px);
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gimi-slide-screen.active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+/* Phone Mockup UI Elements */
+.app-mock-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mock-brand {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 800;
+  color: #fafafa;
+  letter-spacing: 0.3px;
+}
+
+.mock-sparkle {
+  color: #34D399;
+}
+
+.mock-pill-pro {
+  font-size: 9px;
+  font-weight: 700;
+  background: rgba(16, 185, 129, 0.18);
+  border: 0.8px solid rgba(16, 185, 129, 0.35);
+  color: #34D399;
+  padding: 2px 6px;
+  border-radius: 999px;
+}
+
+.app-mock-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.mock-video-box {
+  width: 100%;
+  height: 140px;
+  border-radius: 14px;
+  background: #1C1C20;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mock-video-preview {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 8px;
+}
+
+.video-bg-tiktok {
+  background: linear-gradient(135deg, #181824 0%, #0F172A 100%);
+}
+
+.video-bg-camera {
+  background: linear-gradient(135deg, #132E22 0%, #064E3B 100%);
+}
+
+.video-bg-4k {
+  background: linear-gradient(135deg, #1E1B4B 0%, #0E7490 100%);
+}
+
+.video-bg-vibrance {
+  background: linear-gradient(135deg, #3B0764 0%, #155E75 100%);
+}
+
+.mock-tag {
+  font-size: 8.5px;
+  font-weight: 600;
+  color: #a1a1aa;
+  background: rgba(0, 0, 0, 0.45);
+  align-self: flex-start;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.mock-c2pa-watermark {
+  background: rgba(239, 68, 68, 0.25);
+  border: 0.8px solid rgba(239, 68, 68, 0.5);
+  color: #fca5a5;
+  font-size: 8.5px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 6px;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.mock-cam-overlay {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 9px;
+  font-weight: 700;
+  color: #fafafa;
+  background: rgba(0, 0, 0, 0.55);
+  padding: 4px 8px;
+  border-radius: 6px;
+  align-self: center;
+}
+
+.rec-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ef4444;
+}
+
+.mock-split-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1.5px;
+  background: #ffffff;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
+}
+
+.mock-side-tag {
+  position: absolute;
+  bottom: 6px;
+  font-size: 8px;
+  font-weight: 700;
+  padding: 2px 5px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.mock-side-tag.left {
+  left: 6px;
+  color: #a1a1aa;
+}
+
+.mock-side-tag.right {
+  right: 6px;
+  color: #38bdf8;
+}
+
+/* Card Mock */
+.mock-card {
+  background: #18181C;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mock-card.active-emerald {
+  border-color: rgba(16, 185, 129, 0.4);
+  background: rgba(24, 24, 28, 0.85);
+}
+
+.mock-card.active-cyan {
+  border-color: rgba(6, 182, 212, 0.4);
+  background: rgba(24, 24, 28, 0.85);
+}
+
+.mock-card-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mock-icon-box {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.mock-icon-box.bg-emerald {
+  background: rgba(16, 185, 129, 0.18);
+  color: #10B981;
+}
+
+.mock-icon-box.bg-cyan {
+  background: rgba(6, 182, 212, 0.18);
+  color: #06B6D4;
+}
+
+.mock-card-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mock-card-title {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #fafafa;
+}
+
+.mock-badge-pill {
+  font-size: 8.5px;
+  font-weight: 700;
+  padding: 1.5px 5px;
+  border-radius: 4px;
+  align-self: flex-start;
+}
+
+.mock-badge-pill.green {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10B981;
+}
+
+.mock-badge-pill.cyan {
+  background: rgba(6, 182, 212, 0.15);
+  color: #22D3EE;
+}
+
+.mock-switch {
+  width: 26px;
+  height: 15px;
+  border-radius: 999px;
+  background: #3f3f46;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.mock-switch.on {
+  background: #10B981;
+}
+
+.mock-switch::after {
+  content: '';
+  position: absolute;
+  top: 1.5px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: white;
+  transition: all 0.2s ease;
+}
+
+.mock-switch.on::after {
+  left: 12px;
+}
+
+.mock-chips-row {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  padding-top: 4px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.mock-chip {
+  font-size: 8px;
+  font-weight: 600;
+  padding: 1.5px 5px;
+  border-radius: 4px;
+}
+
+.mock-chip.green {
+  background: rgba(16, 185, 129, 0.1);
+  color: #34D399;
+}
+
+.mock-chip.cyan {
+  background: rgba(6, 182, 212, 0.1);
+  color: #22D3EE;
+}
+
+.mock-res-pills-row {
+  display: flex;
+  gap: 4px;
+  justify-content: space-between;
+}
+
+.mock-res-pill {
+  font-size: 8.5px;
+  font-weight: 700;
+  padding: 4px 6px;
+  background: #18181C;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  color: #a1a1aa;
+}
+
+.mock-res-pill.active {
+  background: rgba(6, 182, 212, 0.2);
+  border-color: #06B6D4;
+  color: #22D3EE;
+}
+
+.mock-pipeline-preview {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+  justify-content: center;
+}
+
+.mock-proc-head {
+  display: flex;
+  justify-content: space-between;
+  font-size: 9px;
+  color: #a1a1aa;
+}
+
+.mock-proc-bar {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.mock-proc-fill {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #10B981, #34D399);
+}
+
+.mock-proc-step {
+  font-size: 8px;
+  color: #34D399;
+  font-weight: 600;
+}
+
+.mock-vip-box {
+  background: linear-gradient(145deg, #1C1917, #0C0A09);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: 12px;
+  padding: 12px 10px;
+  text-align: center;
+  color: #fafafa;
+}
+
+.mock-vip-title {
+  font-size: 10px;
+  font-weight: 700;
+  color: #FBBF24;
+}
+
+.mock-vip-price {
+  font-size: 18px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 4px 0;
+}
+
+.mock-vip-price .curr {
+  font-size: 11px;
+}
+
+.mock-vip-price .unit {
+  font-size: 9px;
+  color: #a1a1aa;
+}
+
+.mock-vip-perks {
+  font-size: 8.5px;
+  color: #d4d4d8;
+  line-height: 1.5;
+  text-align: left;
+  margin-top: 6px;
+}
+
+.mock-cta-button {
+  width: 100%;
+  padding: 8px;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #09090b;
+  font-size: 10px;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: 0.2px;
+}
+
+.mock-cta-button.gold {
+  background: linear-gradient(135deg, #F59E0B, #D97706);
+  color: #ffffff;
+}
+
+/* Pagination Dots */
+.gimi-dots-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.gimi-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--gimi-border-light);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gimi-dot:hover {
+  background: #CBD5E1;
+}
+
+.gimi-dot.active {
+  width: 24px;
+  height: 7px;
+  background: var(--gimi-green-primary);
+}
+
+/* ================= RIGHT SIDE: CONTENT & CTAS ================= */
+.gimi-content-side {
+  width: 100%;
+  max-width: 410px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+}
+
+@media (min-width: 1024px) {
+  .gimi-content-side {
+    align-items: flex-start;
+    text-align: left;
+    gap: 18px;
+  }
+}
+
+.gimi-brand-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gimi-brand-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: var(--gimi-green-light);
+  color: var(--gimi-green-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.gimi-brand-text {
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  color: var(--gimi-green-primary);
+  font-style: italic;
+}
+
+.gimi-text-block {
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.gimi-headline {
+  font-size: 22px;
+  line-height: 1.3;
+  font-weight: 800;
+  color: var(--gimi-text-dark);
+  letter-spacing: -0.3px;
+  margin-bottom: 8px;
+}
+
+@media (min-width: 640px) {
+  .gimi-headline {
+    font-size: 26px;
+  }
+}
+
+.gimi-description {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--gimi-text-muted);
+  font-weight: 500;
+  max-width: 380px;
+}
+
+.gimi-actions-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Primary Button (Gimimay Exact Match) */
+.gimi-btn-primary {
+  width: 100%;
+  height: 48px;
+  border-radius: 16px;
+  background: var(--gimi-green-primary);
+  color: #ffffff;
+  font-size: 13.5px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(91, 126, 104, 0.28);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  border: none;
+}
+
+.gimi-btn-primary:hover {
+  background: var(--gimi-green-hover);
+  box-shadow: 0 10px 28px rgba(91, 126, 104, 0.38);
+  transform: translateY(-2px);
+}
+
+.gimi-btn-primary:active {
+  transform: translateY(0);
+}
+
+.gimi-btn-primary.full {
+  width: 100%;
+}
+
+.gimi-device-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--gimi-text-muted);
+}
+
+/* Toast */
+.gimi-toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(50px);
+  background: #18181B;
+  color: #fafafa;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 600;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gimi-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
