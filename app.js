@@ -4,12 +4,12 @@
 
 const SLIDES_DATA = [
   {
-    title: "Bypass Sensor AI TikTok &\nHapus Metadata C2PA",
-    description: "Hapus metadata AI (Google/OpenAI/Runway), XMP, EXIF, dan GPS agar tombol 'Konten yang dihasilkan AI' di TikTok bisa dimatikan 100%.",
+    title: "Bypass Sensor AI TikTok &\nKamuflase Kamera Multi-Lapis",
+    description: "Hapus metadata C2PA, acak watermark frekuensi (SynthID), gagalkan Face Recognition database, dan samarkan audio TTS dengan mic ambience alami.",
     topIcon: "🛡️",
-    topBadge: "Bypass TikTok AI 100% Valid",
+    topBadge: "Bypass Sensor AI Multi-Lapis",
     bottomIcon: "✓",
-    bottomBadge: "C2PA Stripped (CapCut)"
+    bottomBadge: "Anti-SynthID & FaceDB"
   },
   {
     title: "Kamuflase Kamera HP Asli &\nTanggal Sekarang",
