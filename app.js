@@ -45,11 +45,11 @@ const SLIDES_DATA = [
   },
   {
     title: "Traktir Kopi Developer —\nHanya Rp 10.000 Selamanya",
-    description: "Bukan langganan bulanan. Cukup traktir kopi sekali Rp 10.000 untuk membuka akses Developer Unlimited seumur hidup & dapatkan kode 'ahd215' untuk banyak HP!",
+    description: "Bukan langganan bulanan. Cukup traktir kopi sekali Rp 10.000 untuk membuka akses Developer Unlimited seumur hidup & dapatkan kode rahasia multi-device untuk banyak HP!",
     topIcon: "☕",
     topBadge: "Sekali Bayar Seumur Hidup",
     bottomIcon: "🔑",
-    bottomBadge: "Kode Master: ahd215"
+    bottomBadge: "Akses Multi-Device"
   }
 ];
 
