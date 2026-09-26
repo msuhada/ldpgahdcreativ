@@ -44,12 +44,12 @@ const SLIDES_DATA = [
     bottomBadge: "GPU Hardware Render"
   },
   {
-    title: "Paket AHD PRO VIP —\nHanya Rp 5.000 / Bulan",
-    description: "Ekspor video tanpa batas (Unlimited), kualitas 4K prioritas, dan bebas watermark. Pembayaran resmi dan aktivasi otomatis langsung di aplikasi HP.",
-    topIcon: "👑",
-    topBadge: "VIP Murah Rp 5.000/bln",
-    bottomIcon: "✓",
-    bottomBadge: "Akses Penuh Unlimited"
+    title: "Traktir Kopi Developer —\nHanya Rp 10.000 Selamanya",
+    description: "Bukan langganan bulanan. Cukup traktir kopi sekali Rp 10.000 untuk membuka akses Developer Unlimited seumur hidup & dapatkan kode 'ahd215' untuk banyak HP!",
+    topIcon: "☕",
+    topBadge: "Sekali Bayar Seumur Hidup",
+    bottomIcon: "🔑",
+    bottomBadge: "Kode Master: ahd215"
   }
 ];
 
